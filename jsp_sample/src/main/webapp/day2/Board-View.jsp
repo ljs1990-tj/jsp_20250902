@@ -4,13 +4,11 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Board-View.jsp</title>
 </head>
 <body>
-	<jsp:forward page="ForwardView.jsp">
-		<jsp:param value="hong123" name="userId"/>
-		<jsp:param value="30" name="age"/>
-	</jsp:forward>
+	게시글 상세보기 페이지
+	
 	
 	
 </body>
