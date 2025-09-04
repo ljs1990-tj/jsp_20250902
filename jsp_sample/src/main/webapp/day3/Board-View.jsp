@@ -60,11 +60,21 @@
 					<td class="contents"><%= rs.getString("CONTENTS") %></td>
 				</tr>
 			</table>
-			<div>
+			<%
+				String userId = rs.getString("USERID");
+				String sessionId = (String) session.getAttribute("sessionId");
+				String status = (String) session.getAttribute("sessionStatus");
+				if(userId.equals(sessionId) || status.equals("A")){
+			%>
+				<div>
 				<!-- <input type="submit" value="삭제"> -->
-				<input type="button" value="삭제" onclick="fnRemove()">
-				<input type="button" value="수정" onclick="fnEdit()">
-			</div>
+					<input type="button" value="삭제" onclick="fnRemove()">
+					<input type="button" value="수정" onclick="fnEdit()">
+				</div>
+			<%		
+				}
+			%>
+			
 		</form>
 	<%		
 		} else {

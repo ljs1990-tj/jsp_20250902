@@ -33,6 +33,9 @@
 </style>
 </head>
 <body>
+	<%
+		String id = (String) session.getAttribute("sessionId");
+	%>
 	<div id="container">
 		<form name="board" action="Board-Add-Result.jsp">
 			<table>
@@ -53,7 +56,9 @@
 				</tr>
 				<tr>
 					<th>작성자</th>
-					<td><input type="text" name="userId" class="input-txt"></td>
+					<td> <%= id %>
+						<input hidden value="<%= id %>" type="text" name="userId" class="input-txt">
+					</td>
 				</tr>
 				<tr>
 					<th>내용</th>
