@@ -22,6 +22,10 @@
 	tr:nth-child(odd) {
 		background-color: #edede3;
 	}
+	.grade {
+		color : blue;
+		font-weight : bold;
+	}
 </style>
 </head>
 <body>
@@ -48,13 +52,35 @@
 		
 	<%	
 		while(rs.next()){
-			
+			int grade = rs.getInt("GRADE");
+	%>
+			<tr <%= grade >= 4 ? "class='grade'" : "" %>>
+				<td> <%= rs.getString("EMPNO") %> </td>
+				<td> <%= rs.getString("ENAME") %> </td>
+				<td> <%= rs.getString("JOB") %> </td>
+				<td> <%= rs.getString("SAL") %> </td>
+				<td> <%= rs.getString("DNAME") %> </td>
+				<td> <%= rs.getString("GRADE") %> </td>
+			</tr>
+	<%		
 		}
 	
 	%>
 	</table>
+	<a href="Emp-Add.jsp">
+		<input type="button" value="사원추가">
+	</a>
 </body>
 </html>
+
+
+
+
+
+
+
+
+
 
 
 
