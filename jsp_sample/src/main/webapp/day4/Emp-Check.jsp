@@ -27,6 +27,7 @@
 	function fnBack(){
 		let flg = document.querySelector("#check").value;
 		window.opener.fnReturn(flg);
+		window.close();
 	}
 
 </script>
