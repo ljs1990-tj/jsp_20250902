@@ -26,6 +26,10 @@
 		color : blue;
 		font-weight : bold;
 	}
+	a{
+		color : black;
+		text-decoration: none;
+	}
 </style>
 </head>
 <body>
@@ -37,7 +41,8 @@
 		String query = "SELECT EMPNO, ENAME, JOB, SAL, DNAME, GRADE "
 					 + "FROM EMP E "
 					 + "INNER JOIN DEPT D ON E.DEPTNO = D.DEPTNO "
-					 + "INNER JOIN SALGRADE S ON E.SAL BETWEEN LOSAL AND HISAL";
+					 + "INNER JOIN SALGRADE S ON E.SAL BETWEEN LOSAL AND HISAL "
+					 + "ORDER BY GRADE DESC";
 		ResultSet rs = stmt.executeQuery(query);
 	%>
 		<table>
@@ -56,7 +61,7 @@
 	%>
 			<tr <%= grade >= 4 ? "class='grade'" : "" %>>
 				<td> <%= rs.getString("EMPNO") %> </td>
-				<td> <%= rs.getString("ENAME") %> </td>
+				<td> <a href="Emp-View.jsp?empNo=<%= rs.getString("EMPNO") %>"><%= rs.getString("ENAME") %></a> </td>
 				<td> <%= rs.getString("JOB") %> </td>
 				<td> <%= rs.getString("SAL") %> </td>
 				<td> <%= rs.getString("DNAME") %> </td>
