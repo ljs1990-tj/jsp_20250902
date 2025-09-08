@@ -15,12 +15,11 @@
 		
 		String query = "SELECT E.EMPNO, E.ENAME, E2.ENAME AS MGR_NAME, E.SAL, AVG_SAL, D.DNAME "
 		             + "FROM EMP E "
-		             + "INNER JOIN EMP E2 ON E.MGR = E2.EMPNO "
+		             + "LEFT JOIN EMP E2 ON E.MGR = E2.EMPNO "
 		             + "INNER JOIN DEPT D ON E.DEPTNO = D.DEPTNO "
 		             + "INNER JOIN (SELECT DEPTNO, AVG(SAL) AVG_SAL FROM EMP GROUP BY DEPTNO) T "
 		             + "ON E.DEPTNO = T.DEPTNO "
 		             + "WHERE E.EMPNO = '" + empNo + "'";
-		
 		
 		try{
 			ResultSet rs = stmt.executeQuery(query);
